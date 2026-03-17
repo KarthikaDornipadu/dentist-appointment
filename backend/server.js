@@ -1,13 +1,17 @@
-const express = require("express");
+﻿const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 let nextId = 1;
 let appointments = [];
 
 app.use(cors());
 app.use(express.json());
+
+// Serve built frontend when deployed as a single app
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 app.get("/", (req, res) => {
   res.send("Backend is running");
@@ -26,11 +30,7 @@ app.post("/api/appointments", (req, res) => {
         "Missing required fields: patientName, email, phone, date, time, dentist",
     });
   }
-app.delete("/api/appointments/:id", (req, res) => {
-  const id = Number(req.params.id);
-  appointments = appointments.filter((appointment) => appointment.id !== id);
-  res.json({ message: "Appointment deleted successfully" });
-});
+
   const appointment = {
     id: nextId++,
     patientName,
@@ -45,6 +45,17 @@ app.delete("/api/appointments/:id", (req, res) => {
 
   appointments.push(appointment);
   return res.status(201).json(appointment);
+});
+
+app.delete("/api/appointments/:id", (req, res) => {
+  const id = Number(req.params.id);
+  appointments = appointments.filter((appointment) => appointment.id !== id);
+  res.json({ message: "Appointment deleted successfully" });
+});
+
+// Serve index.html for client-side routing
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
 app.listen(PORT, () => {
