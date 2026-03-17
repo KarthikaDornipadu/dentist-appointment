@@ -1,0 +1,227 @@
+:root {
+  --bg-top: #fff4df;
+  --bg-bottom: #e3f4ff;
+  --ink: #1f2937;
+  --ink-soft: #4b5563;
+  --panel: #ffffffcc;
+  --line: #dbe4ea;
+  --brand: #0f766e;
+  --brand-strong: #0b4f4a;
+  --danger: #b91c1c;
+  --success: #166534;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 0%, var(--bg-top), transparent 45%),
+    radial-gradient(circle at 90% 20%, #d8fce7, transparent 40%),
+    linear-gradient(160deg, #f9fafb, var(--bg-bottom));
+  min-height: 100vh;
+}
+
+.page-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.hero-card {
+  background: #ffffffb8;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(5px);
+  animation: rise 450ms ease-out;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--brand);
+  margin: 0 0 4px;
+  font-weight: 700;
+  font-size: 0.76rem;
+}
+
+.hero-card h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.booking-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea,
+.booking-form button {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  outline: 2px solid #7dd3fc;
+  border-color: #38bdf8;
+}
+
+.booking-form button {
+  border: none;
+  background: linear-gradient(120deg, var(--brand), var(--brand-strong));
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.booking-form button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.booking-form button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(0.3);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.notice {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.notice.success {
+  color: var(--success);
+  background: #dcfce7;
+}
+
+.notice.error {
+  color: var(--danger);
+  background: #fee2e2;
+}
+
+.muted {
+  color: var(--ink-soft);
+}
+
+.appointment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.appointment-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  animation: rise 280ms ease-out;
+}
+
+.appointment-item h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.appointment-item p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.contact {
+  text-align: right;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    text-align: left;
+  }
+
+  .appointment-item {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    padding: 22px 14px 48px;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
