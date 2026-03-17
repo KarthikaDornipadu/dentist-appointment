@@ -74,19 +74,20 @@ function App() {
       setSubmitting(false);
     }
   }
-const handleDelete = async (id) => {
-  try {
-    await fetch(${import.meta.env.VITE_API_URL}/api/appointments/${id}, {
-  method: "DELETE",
-});
 
-    setAppointments((prev) =>
-      prev.filter((appointment) => appointment.id !== id)
-    );
-  } catch (err) {
-    console.error("Delete failed:", err);
-  }
-};
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/appointments/${id}`, {
+        method: "DELETE",
+      });
+
+      setAppointments((prev) =>
+        prev.filter((appointment) => appointment.id !== id)
+      );
+    } catch (err) {
+      console.error("Delete failed:", err);
+    }
+  };
   return (
     <main className="page-shell">
       <section className="hero-card">
