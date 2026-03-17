@@ -1,16 +1,86 @@
-# React + Vite
+🦷 Dentist Appointment Booking Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a full-stack web application that allows users to book, view, and delete dentist appointments. The project is built using React for the frontend and Node.js with Express for the backend.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🚀 Features
 
-## React Compiler
+- Book a dentist appointment
+- View all scheduled appointments
+- Delete appointments
+- Simple and user-friendly interface
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Frontend: React, Vite, CSS
+- Backend: Node.js, Express
+- Deployment: Render
+
+---
+
+📁 Project Structure
+
+dentist-appointment/
+│
+├── frontend/
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── package.json
+│   └── src/
+│       ├── App.jsx
+│       ├── main.jsx
+│       ├── App.css
+│       └── index.css
+│
+└── backend/
+├── server.js
+└── package.json
+
+---
+
+⚙️ How to Run Locally
+
+Backend
+
+cd backend
+npm install
+node server.js
+
+---
+
+Frontend
+
+cd frontend
+npm install
+npm run dev
+
+---
+
+🌐 API Endpoints
+
+- GET /api/appointments → Get all appointments
+- POST /api/appointments → Add new appointment
+- DELETE /api/appointments/:id → Delete appointment
+
+---
+
+🔗 Live Links
+
+- Frontend: https://dentist-appointment-frontend.onrender.com
+- Backend: https://dentist-appointment-8qf8.onrender.com
+
+---
+
+📌 Notes
+
+- Appointment data is stored temporarily in memory
+- Data will be lost when the server restarts
+
+---
+
+👩‍💻 Author
+
+Karthika Dornipadu
