@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-const API_BASE = import.meta.env.VITE_API_URL || "https://dentist-appointment-ptmb.onrender.com";
+const API_BASE = import.meta.env.VITE_API_URL || "https://dentist-appointment-b2bx.onrender.com";
 
 const initialForm = {
   patientName: "",
@@ -76,9 +76,9 @@ function App() {
   }
 const handleDelete = async (id) => {
   try {
-    await fetch("https://dentist-appointment-ptmb.onrender.com/api/appointments" + id, {
-      method: "DELETE",
-    });
+    await fetch(${import.meta.env.VITE_API_URL}/api/appointments/${id}, {
+  method: "DELETE",
+});
 
     setAppointments((prev) =>
       prev.filter((appointment) => appointment.id !== id)
