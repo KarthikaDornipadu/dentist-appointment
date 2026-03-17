@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-const API_BASE = import.meta.env.VITE_API_URL || "https://dentist-appointment-b2bx.onrender.com";
+const API_BASE = import.meta.env.VITE_API_URL || "https://dentist-appointment-8qf8.onrender.com";
 
 const initialForm = {
   patientName: "",
