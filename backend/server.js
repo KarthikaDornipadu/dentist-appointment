@@ -48,9 +48,13 @@ app.post("/api/appointments", (req, res) => {
 });
 
 app.delete("/api/appointments/:id", (req, res) => {
-  const id = Number(req.params.id);
-  appointments = appointments.filter((appointment) => appointment.id !== id);
-  res.json({ message: "Appointment deleted successfully" });
+  const id = req.params.id;
+
+  appointments = appointments.filter(
+    (a) => a.id != id
+  );
+
+  res.json({ message: "Deleted successfully" });
 });
 
 // Serve index.html for client-side routing
