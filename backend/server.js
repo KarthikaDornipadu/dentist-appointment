@@ -57,8 +57,8 @@ app.delete("/api/appointments/:id", (req, res) => {
   res.json({ message: "Deleted successfully" });
 });
 
-// Serve index.html for client-side routing
-app.get("*", (req, res) => {
+// Serve index.html for client-side routing (SPA fallback)
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
