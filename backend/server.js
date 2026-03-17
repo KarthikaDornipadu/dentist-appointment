@@ -12,10 +12,16 @@ app.get("/api/appointments", (req, res) => {
 });
 
 app.post("/api/appointments", (req, res) => {
-  const newAppointment = {
-    id: Date.now(),
-    name: req.body.name,
-  };
+ const newAppointment = {
+  id: Date.now(),
+  patientName: req.body.patientName,
+  email: req.body.email,
+  phone: req.body.phone,
+  date: req.body.date,
+  time: req.body.time,
+  dentist: req.body.dentist,
+  notes: req.body.notes,
+};
   appointments.push(newAppointment);
   res.json(newAppointment);
 });
